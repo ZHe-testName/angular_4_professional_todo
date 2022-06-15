@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Model } from './model';
+import { Model, TodoItem } from './model';
 
 @Component({
   selector: 'todo-app',
@@ -11,5 +11,25 @@ export class AppComponent {
 
   getName() {
     return this.model.user;
+  }
+
+  getRadioBtnArr() {
+    return this.model.radioBtnArr;
+  }
+
+  getTodoItems() {
+    return this.model.items.filter(i => !i.done);
+  }
+
+  // switchTodoList(e: MouseEvent) {
+  //   console.dir(e.target);
+  // }
+
+  addItem(el: HTMLInputElement) {
+    if(el.value.trim()) {
+      this.model.items.push(new TodoItem(el.value, false));
+
+      el.value = '';
+    };
   }
 }
