@@ -21,10 +21,6 @@ export class AppComponent {
     return this.model.items.filter(i => !i.done);
   }
 
-  // switchTodoList(e: MouseEvent) {
-  //   console.dir(e.target);
-  // }
-
   addItem(el: HTMLInputElement) {
     if(el.value.trim()) {
       this.model.items.push(new TodoItem(el.value, false));
